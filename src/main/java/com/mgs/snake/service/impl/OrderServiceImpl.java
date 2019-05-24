@@ -5,6 +5,7 @@ import com.mgs.snake.dataobject.OrderMaster;
 import com.mgs.snake.dataobject.ProductInfo;
 import com.mgs.snake.dto.CartDto;
 import com.mgs.snake.dto.OrderDto;
+import com.mgs.snake.enums.OrderStatus;
 import com.mgs.snake.enums.Result;
 import com.mgs.snake.exceptions.SellException;
 import com.mgs.snake.repository.OrderDetailRepository;
@@ -13,6 +14,7 @@ import com.mgs.snake.service.OrderService;
 import com.mgs.snake.service.ProductService;
 import com.mgs.snake.utils.KeyUtil;
 import com.mgs.snake.utils.converter.OrderMasterToOrderDto;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,6 +30,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
+@Slf4j
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
@@ -110,10 +113,14 @@ public class OrderServiceImpl implements OrderService {
     public OrderDto cancel(OrderDto orderDto) {
 
         //find Order Status
-
+        if (orderDto.getOrderStatus().equals(OrderStatus.NEW.getCode())){
+            log.error("Order status is not correct");
+        }
         //modify Order Status
 
         //return Store
+
+        //refund
 
         return null;
     }
