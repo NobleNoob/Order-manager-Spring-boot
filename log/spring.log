@@ -1,0 +1,7 @@
+2019-03-01 01:16:31.889  INFO 52248 --- [main] com.mgs.snake.LoggerTest                 : Starting LoggerTest on MacBook-Air-2.local with PID 52248 (started by snake in /Users/snake/git/demo)
+2019-03-01 01:16:31.892  INFO 52248 --- [main] com.mgs.snake.LoggerTest                 : No active profile set, falling back to default profiles: default
+2019-03-01 01:16:37.094  INFO 52248 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-03-01 01:16:37.902  INFO 52248 --- [main] com.mgs.snake.LoggerTest                 : Started LoggerTest in 7.648 seconds (JVM running for 11.05)
+2019-03-01 01:16:38.384  INFO 52248 --- [main] com.mgs.snake.LoggerTest                 : info....
+2019-03-01 01:16:38.384 ERROR 52248 --- [main] com.mgs.snake.LoggerTest                 : error....
+2019-03-01 01:16:38.399  INFO 52248 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'

@@ -1,0 +1,26 @@
+2019-05-24 10:20:07,513 Starting OrderServiceImplTest on zhoulirens-MacBook-Pro.local with PID 56762 (started by zhouliren in /Users/zhouliren/git/demo)
+2019-05-24 10:20:07,513 No active profile set, falling back to default profiles: default
+2019-05-24 10:20:07,538 Refreshing org.springframework.web.context.support.GenericWebApplicationContext@7ce026d3: startup date [Fri May 24 10:20:07 CST 2019]; root of context hierarchy
+2019-05-24 10:20:07,834 HV000001: Hibernate Validator 5.3.6.Final
+2019-05-24 10:20:08,377 Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$eb853865] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-24 10:20:09,052 Building JPA container EntityManagerFactory for persistence unit 'default'
+2019-05-24 10:20:09,073 HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-05-24 10:20:09,162 HHH000412: Hibernate Core {5.0.12.Final}
+2019-05-24 10:20:09,163 HHH000206: hibernate.properties not found
+2019-05-24 10:20:09,165 HHH000021: Bytecode provider name : javassist
+2019-05-24 10:20:09,199 HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2019-05-24 10:20:09,313 HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-05-24 10:20:09,803 Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-05-24 10:20:10,515 Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@7ce026d3: startup date [Fri May 24 10:20:07 CST 2019]; root of context hierarchy
+2019-05-24 10:20:10,595 Mapped "{[/buyer/product/list],methods=[GET]}" onto public com.mgs.snake.VO.ResultVO com.mgs.snake.controller.BuyerProductController.list()
+2019-05-24 10:20:10,597 Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-05-24 10:20:10,597 Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-05-24 10:20:10,621 Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-24 10:20:10,621 Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-24 10:20:10,652 Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-24 10:20:10,860 Started OrderServiceImplTest in 3.902 seconds (JVM running for 4.516)
+2019-05-24 10:20:10,936 HHH000397: Using ASTQueryTranslatorFactory
+2019-05-24 10:20:11,090 Closing org.springframework.web.context.support.GenericWebApplicationContext@7ce026d3: startup date [Fri May 24 10:20:07 CST 2019]; root of context hierarchy
+2019-05-24 10:20:11,092 Closing JPA EntityManagerFactory for persistence unit 'default'

@@ -1,0 +1,133 @@
+2019-05-21 23:18:32,582 Starting DemoApplication on zhoulirens-MacBook-Pro.local with PID 39806 (/Users/zhouliren/git/demo/target/classes started by zhouliren in /Users/zhouliren/git/demo)
+2019-05-21 23:18:32,584 No active profile set, falling back to default profiles: default
+2019-05-21 23:18:32,622 Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@595b007d: startup date [Tue May 21 23:18:32 CST 2019]; root of context hierarchy
+2019-05-21 23:18:32,700 HV000001: Hibernate Validator 5.3.6.Final
+2019-05-21 23:18:33,288 Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f5ae50a1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-21 23:18:33,594 Tomcat initialized with port(s): 8080 (http)
+2019-05-21 23:18:33,605 Initializing ProtocolHandler ["http-nio-8080"]
+2019-05-21 23:18:33,612 Starting service [Tomcat]
+2019-05-21 23:18:33,612 Starting Servlet Engine: Apache Tomcat/8.5.31
+2019-05-21 23:18:33,690 Initializing Spring embedded WebApplicationContext
+2019-05-21 23:18:33,691 Root WebApplicationContext: initialization completed in 1068 ms
+2019-05-21 23:18:33,784 Mapping servlet: 'dispatcherServlet' to [/]
+2019-05-21 23:18:33,786 Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-05-21 23:18:33,787 Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-05-21 23:18:33,787 Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-05-21 23:18:33,787 Mapping filter: 'requestContextFilter' to: [/*]
+2019-05-21 23:18:34,250 Building JPA container EntityManagerFactory for persistence unit 'default'
+2019-05-21 23:18:34,263 HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-05-21 23:18:34,335 HHH000412: Hibernate Core {5.0.12.Final}
+2019-05-21 23:18:34,336 HHH000206: hibernate.properties not found
+2019-05-21 23:18:34,338 HHH000021: Bytecode provider name : javassist
+2019-05-21 23:18:34,367 HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2019-05-21 23:18:34,439 HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-05-21 23:18:34,814 Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-05-21 23:18:35,227 Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@595b007d: startup date [Tue May 21 23:18:32 CST 2019]; root of context hierarchy
+2019-05-21 23:18:35,276 Mapped "{[/buyer/product/list],methods=[GET]}" onto public com.mgs.snake.VO.ResultVO com.mgs.snake.controller.BuyerProductController.list()
+2019-05-21 23:18:35,279 Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-05-21 23:18:35,279 Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-05-21 23:18:35,296 Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-21 23:18:35,296 Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-21 23:18:35,320 Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-21 23:18:35,510 Registering beans for JMX exposure on startup
+2019-05-21 23:18:35,524 Starting ProtocolHandler ["http-nio-8080"]
+2019-05-21 23:18:35,545 Pausing ProtocolHandler ["http-nio-8080"]
+2019-05-21 23:18:35,546 Stopping service [Tomcat]
+2019-05-21 23:18:35,551 The stop() method was called on component [StandardServer[-1]] after stop() had already been called. The second call will be ignored.
+2019-05-21 23:18:35,552 Stopping ProtocolHandler ["http-nio-8080"]
+2019-05-21 23:18:35,552 Destroying ProtocolHandler ["http-nio-8080"]
+2019-05-21 23:18:35,554 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2019-05-21 23:18:35,557 Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@595b007d: startup date [Tue May 21 23:18:32 CST 2019]; root of context hierarchy
+2019-05-21 23:18:35,558 Unregistering JMX-exposed beans on shutdown
+2019-05-21 23:18:35,559 Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-05-21 23:19:31,897 Starting DemoApplication on zhoulirens-MacBook-Pro.local with PID 39833 (/Users/zhouliren/git/demo/target/classes started by zhouliren in /Users/zhouliren/git/demo)
+2019-05-21 23:19:31,900 No active profile set, falling back to default profiles: default
+2019-05-21 23:19:31,933 Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@595b007d: startup date [Tue May 21 23:19:31 CST 2019]; root of context hierarchy
+2019-05-21 23:19:32,029 HV000001: Hibernate Validator 5.3.6.Final
+2019-05-21 23:19:32,569 Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7c3bf472] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-21 23:19:32,860 Tomcat initialized with port(s): 8080 (http)
+2019-05-21 23:19:32,871 Initializing ProtocolHandler ["http-nio-8080"]
+2019-05-21 23:19:32,877 Starting service [Tomcat]
+2019-05-21 23:19:32,877 Starting Servlet Engine: Apache Tomcat/8.5.31
+2019-05-21 23:19:32,954 Initializing Spring embedded WebApplicationContext
+2019-05-21 23:19:32,954 Root WebApplicationContext: initialization completed in 1021 ms
+2019-05-21 23:19:33,042 Mapping servlet: 'dispatcherServlet' to [/]
+2019-05-21 23:19:33,045 Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-05-21 23:19:33,045 Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-05-21 23:19:33,045 Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-05-21 23:19:33,045 Mapping filter: 'requestContextFilter' to: [/*]
+2019-05-21 23:19:33,497 Building JPA container EntityManagerFactory for persistence unit 'default'
+2019-05-21 23:19:33,517 HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-05-21 23:19:33,624 HHH000412: Hibernate Core {5.0.12.Final}
+2019-05-21 23:19:33,629 HHH000206: hibernate.properties not found
+2019-05-21 23:19:33,632 HHH000021: Bytecode provider name : javassist
+2019-05-21 23:19:33,689 HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2019-05-21 23:19:33,840 HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-05-21 23:19:34,310 Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-05-21 23:19:34,705 Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@595b007d: startup date [Tue May 21 23:19:31 CST 2019]; root of context hierarchy
+2019-05-21 23:19:34,756 Mapped "{[/buyer/product/list],methods=[GET]}" onto public com.mgs.snake.VO.ResultVO com.mgs.snake.controller.BuyerProductController.list()
+2019-05-21 23:19:34,759 Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-05-21 23:19:34,759 Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-05-21 23:19:34,777 Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-21 23:19:34,777 Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-21 23:19:34,800 Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-21 23:19:34,993 Registering beans for JMX exposure on startup
+2019-05-21 23:19:35,006 Starting ProtocolHandler ["http-nio-8080"]
+2019-05-21 23:19:35,030 Using a shared selector for servlet write/read
+2019-05-21 23:19:35,040 Tomcat started on port(s): 8080 (http)
+2019-05-21 23:19:35,045 Started DemoApplication in 3.421 seconds (JVM running for 3.841)
+2019-05-21 23:23:39,766 Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-05-21 23:23:39,767 FrameworkServlet 'dispatcherServlet': initialization started
+2019-05-21 23:23:39,785 FrameworkServlet 'dispatcherServlet': initialization completed in 18 ms
+2019-05-21 23:23:39,832 HHH000397: Using ASTQueryTranslatorFactory
+2019-05-21 23:50:28,424 Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@595b007d: startup date [Tue May 21 23:19:31 CST 2019]; root of context hierarchy
+2019-05-21 23:50:28,428 Unregistering JMX-exposed beans on shutdown
+2019-05-21 23:50:28,429 Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-05-21 23:50:31,600 Starting DemoApplication on zhoulirens-MacBook-Pro.local with PID 40279 (/Users/zhouliren/git/demo/target/classes started by zhouliren in /Users/zhouliren/git/demo)
+2019-05-21 23:50:31,602 No active profile set, falling back to default profiles: default
+2019-05-21 23:50:31,633 Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@595b007d: startup date [Tue May 21 23:50:31 CST 2019]; root of context hierarchy
+2019-05-21 23:50:31,724 HV000001: Hibernate Validator 5.3.6.Final
+2019-05-21 23:50:32,248 Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ab73f6d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-21 23:50:32,492 Tomcat initialized with port(s): 8080 (http)
+2019-05-21 23:50:32,502 Initializing ProtocolHandler ["http-nio-8080"]
+2019-05-21 23:50:32,509 Starting service [Tomcat]
+2019-05-21 23:50:32,509 Starting Servlet Engine: Apache Tomcat/8.5.31
+2019-05-21 23:50:32,560 Initializing Spring embedded WebApplicationContext
+2019-05-21 23:50:32,561 Root WebApplicationContext: initialization completed in 928 ms
+2019-05-21 23:50:32,630 Mapping servlet: 'dispatcherServlet' to [/]
+2019-05-21 23:50:32,631 Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-05-21 23:50:32,632 Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-05-21 23:50:32,632 Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-05-21 23:50:32,632 Mapping filter: 'requestContextFilter' to: [/*]
+2019-05-21 23:50:32,981 Building JPA container EntityManagerFactory for persistence unit 'default'
+2019-05-21 23:50:32,990 HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-05-21 23:50:33,024 HHH000412: Hibernate Core {5.0.12.Final}
+2019-05-21 23:50:33,025 HHH000206: hibernate.properties not found
+2019-05-21 23:50:33,025 HHH000021: Bytecode provider name : javassist
+2019-05-21 23:50:33,047 HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2019-05-21 23:50:33,109 HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-05-21 23:50:33,391 Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-05-21 23:50:33,706 Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@595b007d: startup date [Tue May 21 23:50:31 CST 2019]; root of context hierarchy
+2019-05-21 23:50:33,746 Mapped "{[/buyer/product/list],methods=[GET]}" onto public com.mgs.snake.VO.ResultVO com.mgs.snake.controller.BuyerProductController.list()
+2019-05-21 23:50:33,748 Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-05-21 23:50:33,748 Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-05-21 23:50:33,764 Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-21 23:50:33,764 Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-21 23:50:33,786 Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-21 23:50:33,931 Registering beans for JMX exposure on startup
+2019-05-21 23:50:33,940 Starting ProtocolHandler ["http-nio-8080"]
+2019-05-21 23:50:33,962 Using a shared selector for servlet write/read
+2019-05-21 23:50:33,969 Tomcat started on port(s): 8080 (http)
+2019-05-21 23:50:33,972 Started DemoApplication in 2.617 seconds (JVM running for 3.149)
+2019-05-21 23:50:38,261 Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-05-21 23:50:38,261 FrameworkServlet 'dispatcherServlet': initialization started
+2019-05-21 23:50:38,274 FrameworkServlet 'dispatcherServlet': initialization completed in 13 ms
+2019-05-21 23:50:38,301 HHH000397: Using ASTQueryTranslatorFactory

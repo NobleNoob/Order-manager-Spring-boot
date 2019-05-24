@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://172.20.10.13/sell?characterEncoding=utf-8&userSSL=false
+  jpa:
+    show-sql: true
+server:
+#  servlet:
+  context-path: /sell
+#logging:
+#  pattern:
+#    console: "%d - %msg%n"
+#  path: /Users/snake/git/demo/log
