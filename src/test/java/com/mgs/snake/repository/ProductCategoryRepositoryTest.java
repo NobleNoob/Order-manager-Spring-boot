@@ -1,6 +1,6 @@
 package com.mgs.snake.repository;
 
-import com.mgs.snake.dataobject.ProductCategory;
+import com.mgs.snake.dao.ProductCategory;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,7 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.transaction.Transactional;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 

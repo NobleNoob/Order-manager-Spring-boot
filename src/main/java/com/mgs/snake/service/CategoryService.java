@@ -1,6 +1,6 @@
 package com.mgs.snake.service;
 
-import com.mgs.snake.dataobject.ProductCategory;
+import com.mgs.snake.dao.ProductCategory;
 
 import java.util.List;
 

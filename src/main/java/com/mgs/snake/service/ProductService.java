@@ -1,6 +1,6 @@
 package com.mgs.snake.service;
 
-import com.mgs.snake.dataobject.ProductInfo;
+import com.mgs.snake.dao.ProductInfo;
 import com.mgs.snake.dto.CartDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

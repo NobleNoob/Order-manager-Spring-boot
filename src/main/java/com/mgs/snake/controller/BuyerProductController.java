@@ -4,12 +4,11 @@ package com.mgs.snake.controller;
 import com.mgs.snake.VO.ProductInfoVO;
 import com.mgs.snake.VO.ProductVO;
 import com.mgs.snake.VO.ResultVO;
-import com.mgs.snake.dataobject.ProductCategory;
-import com.mgs.snake.dataobject.ProductInfo;
+import com.mgs.snake.dao.ProductCategory;
+import com.mgs.snake.dao.ProductInfo;
 import com.mgs.snake.service.CategoryService;
 import com.mgs.snake.service.ProductService;
 import com.mgs.snake.utils.ResultVOUtil;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,30 +29,35 @@ public class BuyerProductController {
 
     @GetMapping("/list")
     public ResultVO list() {
-        //list all product from database
+        //search all products from database
         List<ProductInfo> productInfoList = productService.findUpAll();
-
-        //list product from specific Types
+        //insert typeId from productInfo
         List<Integer> categoryTypeList = new ArrayList<>();
         for(ProductInfo productInfo : productInfoList) {
             categoryTypeList.add(productInfo.getCategoryType());
         }
-        List<ProductCategory> productCategoryList = categoryService.findByCategoryTypeIn(categoryTypeList);
-
-
         List<ProductVO> productVOList = new ArrayList<>();
+        //catch Category list
+        List<ProductCategory> productCategoryList = categoryService.findByCategoryTypeIn(categoryTypeList);
         for(ProductCategory productCategory: productCategoryList) {
             ProductVO productVO = new ProductVO();
             productVO.setCategoryType(productCategory.getCategoryType());
             productVO.setCategoryName(productCategory.getCategoryName());
+
             List<ProductInfoVO> productInfoVOList = new ArrayList<>();
             for (ProductInfo productInfo: productInfoList) {
                 if (productInfo.getCategoryType().equals(productCategory.getCategoryType())){
                     ProductInfoVO productInfoVO = new ProductInfoVO();
-                    BeanUtils.copyProperties(productInfo,productInfoVO);
+                    productInfoVO.setProductId(productInfo.getProductId());
+                    productInfoVO.setProductDescription(productInfo.getProductDescription());
+                    productInfoVO.setProductName(productInfo.getProductName());
+                    productInfoVO.setProductPrice(productInfo.getProductPrice());
+                    productInfoVO.setProductIcon(productInfo.getProductIcon());
+//                    BeanUtils.copyProperties(productInfo,productInfoVO);
                     productInfoVOList.add(productInfoVO);
                 }
             }
+
             productVO.setProductInfoVOList(productInfoVOList);
             productVOList.add(productVO);
         }

@@ -1,6 +1,6 @@
 package com.mgs.snake.repository;
 
-import com.mgs.snake.dataobject.ProductCategory;
+import com.mgs.snake.dao.ProductCategory;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

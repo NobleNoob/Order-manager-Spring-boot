@@ -1,6 +1,6 @@
 package com.mgs.snake.repository;
 
-import com.mgs.snake.dataobject.OrderDetail;
+import com.mgs.snake.dao.OrderDetail;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

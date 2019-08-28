@@ -1,12 +1,11 @@
 package com.mgs.snake.dto;
 
-import com.mgs.snake.dataobject.OrderDetail;
+import com.mgs.snake.dao.OrderDetail;
 import com.mgs.snake.enums.OrderStatus;
 import com.mgs.snake.enums.PaymentStatus;
 import lombok.Data;
 
 import javax.persistence.Column;
-import javax.persistence.Id;
 import javax.persistence.Transient;
 import java.math.BigDecimal;
 import java.util.Date;

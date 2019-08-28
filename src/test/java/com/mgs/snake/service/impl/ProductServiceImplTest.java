@@ -1,8 +1,7 @@
 package com.mgs.snake.service.impl;
 
-import com.mgs.snake.dataobject.ProductInfo;
+import com.mgs.snake.dao.ProductInfo;
 import com.mgs.snake.enums.ProductStatus;
-import com.mgs.snake.service.ProductService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,8 +13,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

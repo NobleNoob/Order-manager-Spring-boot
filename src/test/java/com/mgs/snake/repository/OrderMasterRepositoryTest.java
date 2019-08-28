@@ -1,7 +1,6 @@
 package com.mgs.snake.repository;
 
-import com.mgs.snake.dataobject.OrderMaster;
-import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
+import com.mgs.snake.dao.OrderMaster;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,8 +11,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
-
-import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

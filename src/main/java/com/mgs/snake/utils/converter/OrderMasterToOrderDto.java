@@ -1,10 +1,9 @@
 package com.mgs.snake.utils.converter;
 
-import com.mgs.snake.dataobject.OrderMaster;
+import com.mgs.snake.dao.OrderMaster;
 import com.mgs.snake.dto.OrderDto;
 import org.springframework.beans.BeanUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 

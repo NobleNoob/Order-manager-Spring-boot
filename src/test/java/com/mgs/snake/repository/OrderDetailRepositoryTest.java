@@ -1,7 +1,6 @@
 package com.mgs.snake.repository;
 
-import com.mgs.snake.dataobject.OrderDetail;
-import org.aspectj.weaver.ast.Or;
+import com.mgs.snake.dao.OrderDetail;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +8,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
-
-import static org.junit.Assert.*;
 
 
 @RunWith(SpringRunner.class)

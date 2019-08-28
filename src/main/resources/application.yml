@@ -9,7 +9,8 @@ spring:
 server:
 #  servlet:
   context-path: /sell
-#logging:
-#  pattern:
-#    console: "%d - %msg%n"
-#  path: /Users/snake/git/demo/log
+  port: 9010
+logging:
+  pattern:
+    console: "%d - %msg%n"
+  path: /Users/snake/git/demo/log

@@ -1,12 +1,12 @@
 package com.mgs.snake.service.impl;
 
-import com.mgs.snake.dataobject.OrderDetail;
-import com.mgs.snake.dataobject.OrderMaster;
-import com.mgs.snake.dataobject.ProductInfo;
+import com.mgs.snake.dao.OrderDetail;
+import com.mgs.snake.dao.OrderMaster;
+import com.mgs.snake.dao.ProductInfo;
 import com.mgs.snake.dto.CartDto;
 import com.mgs.snake.dto.OrderDto;
 import com.mgs.snake.enums.OrderStatus;
-import com.mgs.snake.enums.Result;
+import com.mgs.snake.enums.ResultEnum;
 import com.mgs.snake.exceptions.SellException;
 import com.mgs.snake.repository.OrderDetailRepository;
 import com.mgs.snake.repository.OrderMasterRepository;
@@ -25,8 +25,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -46,22 +46,25 @@ public class OrderServiceImpl implements OrderService {
     @Transactional
     public OrderDto create(OrderDto orderDto) {
         String orderId = KeyUtil.genUniqueKey();
-        BigDecimal orderAmount = new BigDecimal(0);
+        BigDecimal orderAmount = new BigDecimal(BigInteger.ZERO);
         List<CartDto> cartDtos  = new ArrayList<>();
 
         //Search product_number and product_price
         for (OrderDetail orderDetail: orderDto.getOrderDetails()){
             ProductInfo productInfo = productService.findOne(orderDetail.getProductId());
             if (productInfo == null){
-                throw new SellException(Result.PRODUCT_NOT_EXISTENT);
+                throw new SellException(ResultEnum.PRODUCT_NOT_EXISTENT);
             }
 
-            //Count total price
+            /*
+            * orderAmount = price * product_number + 0
+            */
             orderAmount = productInfo.getProductPrice().multiply(new BigDecimal(orderDetail.getProductQuantity()).add(orderAmount));
-
             orderDetail.setDetailId(KeyUtil.genUniqueKey());
             orderDetail.setOrderId(orderId);
             BeanUtils.copyProperties(productInfo,orderDetail);
+
+
 
             //insert detail to orderDetail
             orderDetailRepository.save(orderDetail);
@@ -86,12 +89,12 @@ public class OrderServiceImpl implements OrderService {
 
         OrderMaster orderMaster = orderMasterRepository.findOne(orderId);
         if (orderMaster == null){
-            throw new SellException(Result.ORDER_IS_NOT_EXISTENT);
+            throw new SellException(ResultEnum.ORDER_IS_NOT_EXISTENT);
         }
 
         List<OrderDetail> orderDetailList = orderDetailRepository.findByOrderId(orderId);
         if (CollectionUtils.isEmpty(orderDetailList)){
-            throw new SellException(Result.ORDERDETAIL_IS_NOT_EXISTENT);
+            throw new SellException(ResultEnum.ORDER_DETAIL_IS_NOT_EXISTENT);
         }
 
         OrderDto orderDto = new OrderDto();

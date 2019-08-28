@@ -1,6 +1,6 @@
 package com.mgs.snake.service.impl;
 
-import com.mgs.snake.dataobject.ProductCategory;
+import com.mgs.snake.dao.ProductCategory;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,8 +10,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -43,7 +41,8 @@ public class CategoryServiceImplTest {
 
     @Test
     public void save() throws Exception {
-        ProductCategory productCategory = new ProductCategory("Games Console",10);
+        ProductCategory productCategory = new ProductCategory("ps4",10);
+        productCategory.setCategoryId(2);
         ProductCategory result = categoryService.save(productCategory);
         Assert.assertNotNull(result);
     }

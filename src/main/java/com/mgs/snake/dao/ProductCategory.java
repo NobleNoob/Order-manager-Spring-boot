@@ -1,13 +1,13 @@
-package com.mgs.snake.dataobject;
+package com.mgs.snake.dao;
 
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @DynamicUpdate
+@Table(name = "product_category")
 @Data
 public class ProductCategory {
     @Id

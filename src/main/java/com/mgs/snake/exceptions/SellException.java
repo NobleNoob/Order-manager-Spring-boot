@@ -1,13 +1,13 @@
 package com.mgs.snake.exceptions;
 
-import com.mgs.snake.enums.Result;
+import com.mgs.snake.enums.ResultEnum;
 
 public class SellException extends RuntimeException {
     private Integer code;
 
-    public SellException(Result result) {
-        super(result.getMessage());
+    public SellException(ResultEnum resultEnum) {
+        super(resultEnum.getMessage());
 
-        this.code = result.getCode();
+        this.code = resultEnum.getCode();
     }
 }

@@ -1,6 +1,6 @@
 package com.mgs.snake.service.impl;
 
-import com.mgs.snake.dataobject.ProductCategory;
+import com.mgs.snake.dao.ProductCategory;
 import com.mgs.snake.repository.ProductCategoryRepository;
 import com.mgs.snake.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.mgs.snake.repository;
 
-import com.mgs.snake.dataobject.OrderMaster;
+import com.mgs.snake.dao.OrderMaster;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

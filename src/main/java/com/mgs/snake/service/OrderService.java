@@ -1,6 +1,5 @@
 package com.mgs.snake.service;
 
-import com.mgs.snake.dataobject.OrderMaster;
 import com.mgs.snake.dto.OrderDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

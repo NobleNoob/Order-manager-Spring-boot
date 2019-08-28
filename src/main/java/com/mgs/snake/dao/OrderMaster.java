@@ -1,4 +1,4 @@
-package com.mgs.snake.dataobject;
+package com.mgs.snake.dao;
 
 import com.mgs.snake.enums.OrderStatus;
 import com.mgs.snake.enums.PaymentStatus;
@@ -8,7 +8,6 @@ import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @DynamicUpdate

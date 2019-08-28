@@ -1,10 +1,10 @@
 package com.mgs.snake.service.impl;
 
 
-import com.mgs.snake.dataobject.ProductInfo;
+import com.mgs.snake.dao.ProductInfo;
 import com.mgs.snake.dto.CartDto;
 import com.mgs.snake.enums.ProductStatus;
-import com.mgs.snake.enums.Result;
+import com.mgs.snake.enums.ResultEnum;
 import com.mgs.snake.exceptions.SellException;
 import com.mgs.snake.repository.ProductInfoRepository;
 import com.mgs.snake.service.ProductService;
@@ -54,12 +54,12 @@ public class ProductServiceImpl implements ProductService {
         for (CartDto cartDto: cartDtos) {
             ProductInfo productInfo = repository.findOne(cartDto.getProductId());
             if (productInfo == null){
-                throw new SellException(Result.PRODUCT_NOT_EXISTENT);
+                throw new SellException(ResultEnum.PRODUCT_NOT_EXISTENT);
             }
             //check the store from Product and stock
             Integer store = productInfo.getProductStock() - cartDto.getProductQuality();
             if (store < 0) {
-                throw new SellException(Result.STORE_IS_NOT_ENOUGH);
+                throw new SellException(ResultEnum.STORE_IS_NOT_ENOUGH);
             }
             productInfo.setProductStock(store);
 

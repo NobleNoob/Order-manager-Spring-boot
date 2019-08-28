@@ -1,9 +1,8 @@
 package com.mgs.snake.service.impl;
 
-import com.mgs.snake.dataobject.OrderDetail;
+import com.mgs.snake.dao.OrderDetail;
 import com.mgs.snake.dto.OrderDto;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +11,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.swing.*;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
-
 
 
 @RunWith(SpringRunner.class)

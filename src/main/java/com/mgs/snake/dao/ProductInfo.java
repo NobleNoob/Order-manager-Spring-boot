@@ -1,4 +1,4 @@
-package com.mgs.snake.dataobject;
+package com.mgs.snake.dao;
 
 
 import lombok.Data;
