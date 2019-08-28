@@ -47,7 +47,7 @@ public class OrderServiceImpl implements OrderService {
     public OrderDto create(OrderDto orderDto) {
         String orderId = KeyUtil.genUniqueKey();
         BigDecimal orderAmount = new BigDecimal(BigInteger.ZERO);
-        List<CartDto> cartDtos  = new ArrayList<>();
+        List<CartDto> cartDtoList  = new ArrayList<>();
 
         //Search product_number and product_price
         for (OrderDetail orderDetail: orderDto.getOrderDetails()){
@@ -57,29 +57,31 @@ public class OrderServiceImpl implements OrderService {
             }
 
             /*
+            * order amount price
             * orderAmount = price * product_number + 0
             */
             orderAmount = productInfo.getProductPrice().multiply(new BigDecimal(orderDetail.getProductQuantity()).add(orderAmount));
             orderDetail.setDetailId(KeyUtil.genUniqueKey());
             orderDetail.setOrderId(orderId);
             BeanUtils.copyProperties(productInfo,orderDetail);
-
-
-
+//            orderDetail.setProductId(productInfo.getProductId());
+//            orderDetail.setProductName(productInfo.getProductName());
+//            orderDetail.setProductIcon(productInfo.getProductIcon());
+//            orderDetail.setProductPrice(productInfo.getProductPrice());
             //insert detail to orderDetail
             orderDetailRepository.save(orderDetail);
             CartDto cartDto = new CartDto(orderDetail.getProductId(),orderDetail.getProductQuantity());
-            cartDtos.add(cartDto);
+            cartDtoList.add(cartDto);
         }
 
-        //insert orderMaster into orderMaster table
+        //insert orderMaster and orderDetail into database
         OrderMaster orderMaster = new OrderMaster();
-        BeanUtils.copyProperties(orderDto,orderMaster);
         orderMaster.setOrderId(orderId);
+        BeanUtils.copyProperties(orderDto,orderMaster);
         orderMaster.setOrderAmount(orderAmount);
         orderMasterRepository.save(orderMaster);
         //decrease stock from store
-        productService.decreaseStock(cartDtos);
+        productService.decreaseStock(cartDtoList);
 
         return orderDto;
     }

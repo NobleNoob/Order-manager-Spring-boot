@@ -9,6 +9,7 @@ import com.mgs.snake.dao.ProductInfo;
 import com.mgs.snake.service.CategoryService;
 import com.mgs.snake.service.ProductService;
 import com.mgs.snake.utils.ResultVOUtil;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,10 +51,10 @@ public class BuyerProductController {
                     ProductInfoVO productInfoVO = new ProductInfoVO();
                     productInfoVO.setProductId(productInfo.getProductId());
                     productInfoVO.setProductDescription(productInfo.getProductDescription());
-                    productInfoVO.setProductName(productInfo.getProductName());
-                    productInfoVO.setProductPrice(productInfo.getProductPrice());
-                    productInfoVO.setProductIcon(productInfo.getProductIcon());
-//                    BeanUtils.copyProperties(productInfo,productInfoVO);
+//                    productInfoVO.setProductName(productInfo.getProductName());
+//                    productInfoVO.setProductPrice(productInfo.getProductPrice());
+//                    productInfoVO.setProductIcon(productInfo.getProductIcon());
+                    BeanUtils.copyProperties(productInfo,productInfoVO);
                     productInfoVOList.add(productInfoVO);
                 }
             }

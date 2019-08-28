@@ -32,20 +32,19 @@ public class OrderServiceImplTest {
     public void create() throws Exception {
         OrderDto orderDto = new OrderDto();
         orderDto.setOrderId(ORDER_ID);
-        orderDto.setBuyerName("sonic");
+        orderDto.setBuyerName("hacker");
         orderDto.setBuyerAddress("Sample address");
-        orderDto.setBuyerPhone("12311111111");
+        orderDto.setBuyerPhone("50002");
         orderDto.setBuyerOpenid(BUYER_OPEN_ID);
         List<OrderDetail> orderDetailList = new ArrayList<>();
         OrderDetail detail = new OrderDetail();
         detail.setProductId("12324");
         detail.setProductQuantity(1);
-
         orderDetailList.add(detail);
 
         orderDto.setOrderDetails(orderDetailList);
         OrderDto result = orderService.create(orderDto);
-        log.info("result {}", result);
+        log.info("创建订单 result {}", result);
     }
 
     @Test
