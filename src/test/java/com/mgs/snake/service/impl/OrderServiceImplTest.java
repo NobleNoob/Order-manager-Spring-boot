@@ -2,6 +2,7 @@ package com.mgs.snake.service.impl;
 
 import com.mgs.snake.dao.OrderDetail;
 import com.mgs.snake.dto.OrderDto;
+import com.mgs.snake.enums.OrderStatusEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -27,7 +28,7 @@ public class OrderServiceImplTest {
 
     private final String BUYER_OPEN_ID = "123456";
 
-    private final String ORDER_ID = "1558604159315219093";
+    private final String ORDER_ID = "1567061495056106928";
 
     @Test
     public void create() throws Exception {
@@ -65,7 +66,10 @@ public class OrderServiceImplTest {
     }
 
     @Test
-    public void cancel() {
+    public void cancel() throws Exception {
+        OrderDto orderDto = orderService.findOne(ORDER_ID);
+        OrderDto result = orderService.cancel(orderDto);
+        Assert.assertEquals(OrderStatusEnum.CANCEL.getCode(),result.getOrderStatus());
     }
 
     @Test

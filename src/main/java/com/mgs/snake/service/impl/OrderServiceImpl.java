@@ -78,7 +78,7 @@ public class OrderServiceImpl implements OrderService {
 
         //insert orderMaster and orderDetail into database
         OrderMaster orderMaster = new OrderMaster();
-        orderMaster.setOrderId(orderId);
+        orderDto.setOrderId(orderId);
         BeanUtils.copyProperties(orderDto,orderMaster);
         orderMaster.setOrderAmount(orderAmount);
         orderMaster.setOrderStatus(OrderStatusEnum.NEW.getCode());
@@ -89,6 +89,7 @@ public class OrderServiceImpl implements OrderService {
         List<CartDto> cartDTOList = orderDto.getOrderDetails().stream().map(e ->
                 new CartDto(e.getProductId(), e.getProductQuantity())
         ).collect(Collectors.toList());
+
         productService.decreaseStock(cartDTOList);
 
 
@@ -124,25 +125,29 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional
     public OrderDto cancel(OrderDto orderDto) {
         OrderMaster orderMaster = new OrderMaster();
-        BeanUtils.copyProperties(orderDto,orderMaster);
 
         //find Order Status
-        if (orderDto.getOrderStatus().equals(OrderStatusEnum.NEW.getCode())){
-            log.error("Order status is not correct",orderDto.getOrderId(),orderDto.getOrderStatus());
+        if (!orderDto.getOrderStatus().equals(OrderStatusEnum.NEW.getCode())){
+            log.error("Order status is not correct,{},{}",orderDto.getOrderId(),orderDto.getOrderStatus());
             throw new SellException(ResultEnum.ORDER_STATUS_ERROR);
         }
         //modify Order Status
-        orderMaster.setOrderStatus(OrderStatusEnum.CANCEL.getCode());
+        orderDto.setOrderStatus(OrderStatusEnum.CANCEL.getCode());
+        BeanUtils.copyProperties(orderDto,orderMaster);
         OrderMaster orderUpdate = orderMasterRepository.save(orderMaster);
-        if (orderUpdate== null) {
+        if (orderUpdate == null) {
             log.error("Order cancle is failed, orderMaster={}", orderMaster);
             throw new SellException(ResultEnum.ORDER_UPDATE_FAILED);
         }
         //return Store
         if(CollectionUtils.isEmpty(orderDto.getOrderDetails())) {
             log.error("Return product to store,orderDto{}",orderDto);
+            throw new SellException(ResultEnum.ORDER_DETAIL_EMPTY);
+
+        }
 //            List<CartDto> cartDtos = orderDto.getOrderDetails()
 //            .stream()
 //            .map(e -> new CartDto(e.getProductId(),e.getProductQuantity())).collect(Collectors.toList());
@@ -152,9 +157,11 @@ public class OrderServiceImpl implements OrderService {
                 cartDtoList.add(cartDto);
             }
             productService.increaseStock(cartDtoList);
-        }
-        //refund if has paid
 
+        //refund if has paid
+        if (orderDto.getOrderStatus().equals(PaymentStatus.FINISH.getCode())) {
+            //TODO
+        }
         return orderDto;
     }
 
