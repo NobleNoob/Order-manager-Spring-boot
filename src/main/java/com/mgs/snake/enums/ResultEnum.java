@@ -6,6 +6,9 @@ import lombok.Getter;
 @Getter
 public enum ResultEnum {
 
+    OPENID_EMPTY(40401,"OpenID is empty"),
+    CART_EMPTY(40400,"Cart is empty"),
+    PARAM_ERROR(40000,"Argument is incorrect"),
     PRODUCT_NOT_EXISTENT(10,"Product not Existent"),
     STORE_IS_NOT_ENOUGH(20,"Store not Enough"),
     ORDER_IS_NOT_EXISTENT(30,"Order is not Existent"),

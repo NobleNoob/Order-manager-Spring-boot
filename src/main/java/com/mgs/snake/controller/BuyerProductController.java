@@ -51,9 +51,6 @@ public class BuyerProductController {
                     ProductInfoVO productInfoVO = new ProductInfoVO();
                     productInfoVO.setProductId(productInfo.getProductId());
                     productInfoVO.setProductDescription(productInfo.getProductDescription());
-//                    productInfoVO.setProductName(productInfo.getProductName());
-//                    productInfoVO.setProductPrice(productInfo.getProductPrice());
-//                    productInfoVO.setProductIcon(productInfo.getProductIcon());
                     BeanUtils.copyProperties(productInfo,productInfoVO);
                     productInfoVOList.add(productInfoVO);
                 }
