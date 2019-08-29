@@ -84,6 +84,7 @@ public class OrderServiceImpl implements OrderService {
         orderMaster.setOrderStatus(OrderStatusEnum.NEW.getCode());
         orderMaster.setPayStatus(PaymentStatus.UNPAY.getCode());
         orderMasterRepository.save(orderMaster);
+
         //decrease stock from store
         List<CartDto> cartDTOList = orderDto.getOrderDetails().stream().map(e ->
                 new CartDto(e.getProductId(), e.getProductQuantity())
@@ -124,18 +125,37 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderDto cancel(OrderDto orderDto) {
+        OrderMaster orderMaster = new OrderMaster();
+        BeanUtils.copyProperties(orderDto,orderMaster);
 
         //find Order Status
         if (orderDto.getOrderStatus().equals(OrderStatusEnum.NEW.getCode())){
-            log.error("Order status is not correct");
+            log.error("Order status is not correct",orderDto.getOrderId(),orderDto.getOrderStatus());
+            throw new SellException(ResultEnum.ORDER_STATUS_ERROR);
         }
         //modify Order Status
-
+        orderMaster.setOrderStatus(OrderStatusEnum.CANCEL.getCode());
+        OrderMaster orderUpdate = orderMasterRepository.save(orderMaster);
+        if (orderUpdate== null) {
+            log.error("Order cancle is failed, orderMaster={}", orderMaster);
+            throw new SellException(ResultEnum.ORDER_UPDATE_FAILED);
+        }
         //return Store
-
+        if(CollectionUtils.isEmpty(orderDto.getOrderDetails())) {
+            log.error("Return product to store,orderDto{}",orderDto);
+//            List<CartDto> cartDtos = orderDto.getOrderDetails()
+//            .stream()
+//            .map(e -> new CartDto(e.getProductId(),e.getProductQuantity())).collect(Collectors.toList());
+            List<CartDto> cartDtoList  = new ArrayList<>();
+            for (OrderDetail orderDetail: orderDto.getOrderDetails()) {
+                CartDto cartDto = new CartDto(orderDetail.getOrderId(), orderDetail.getProductQuantity());
+                cartDtoList.add(cartDto);
+            }
+            productService.increaseStock(cartDtoList);
+        }
         //refund if has paid
 
-        return null;
+        return orderDto;
     }
 
     @Override
