@@ -3,6 +3,8 @@ package com.mgs.snake.service.impl;
 import com.mgs.snake.dao.OrderDetail;
 import com.mgs.snake.dto.OrderDto;
 import com.mgs.snake.enums.OrderStatusEnum;
+import com.mgs.snake.enums.PaymentStatus;
+import com.mgs.snake.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -28,12 +30,12 @@ public class OrderServiceImplTest {
 
     private final String BUYER_OPEN_ID = "123456";
 
-    private final String ORDER_ID = "1567061495056106928";
+    private final String ORDER_ID = "1567080375573674034";
 
     @Test
     public void create() throws Exception {
         OrderDto orderDto = new OrderDto();
-        orderDto.setOrderId(ORDER_ID);
+        orderDto.setOrderId(KeyUtil.genUniqueKey());
         orderDto.setBuyerName("hacker");
         orderDto.setBuyerAddress("Sample address");
         orderDto.setBuyerPhone("1212121121");
@@ -41,7 +43,7 @@ public class OrderServiceImplTest {
         List<OrderDetail> orderDetailList = new ArrayList<>();
         OrderDetail detail = new OrderDetail();
         detail.setProductId("50002");
-        detail.setProductQuantity(1);
+        detail.setProductQuantity(2);
         orderDetailList.add(detail);
 
         orderDto.setOrderDetails(orderDetailList);
@@ -74,9 +76,15 @@ public class OrderServiceImplTest {
 
     @Test
     public void finish() {
+        OrderDto orderDto = orderService.findOne(ORDER_ID);
+        OrderDto result = orderService.finish(orderDto);
+        Assert.assertEquals(OrderStatusEnum.FINISH.getCode(),result.getOrderStatus());
     }
 
     @Test
     public void paid() {
+        OrderDto orderDto = orderService.findOne(ORDER_ID);
+        OrderDto result = orderService.paid(orderDto);
+        Assert.assertEquals(PaymentStatus.FINISH.getCode(),result.getPayStatus());
     }
 }
