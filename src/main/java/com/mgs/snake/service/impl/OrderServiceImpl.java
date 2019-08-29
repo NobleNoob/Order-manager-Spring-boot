@@ -5,7 +5,8 @@ import com.mgs.snake.dao.OrderMaster;
 import com.mgs.snake.dao.ProductInfo;
 import com.mgs.snake.dto.CartDto;
 import com.mgs.snake.dto.OrderDto;
-import com.mgs.snake.enums.OrderStatus;
+import com.mgs.snake.enums.OrderStatusEnum;
+import com.mgs.snake.enums.PaymentStatus;
 import com.mgs.snake.enums.ResultEnum;
 import com.mgs.snake.exceptions.SellException;
 import com.mgs.snake.repository.OrderDetailRepository;
@@ -28,6 +29,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -47,7 +49,7 @@ public class OrderServiceImpl implements OrderService {
     public OrderDto create(OrderDto orderDto) {
         String orderId = KeyUtil.genUniqueKey();
         BigDecimal orderAmount = new BigDecimal(BigInteger.ZERO);
-        List<CartDto> cartDtoList  = new ArrayList<>();
+//        List<CartDto> cartDtoList  = new ArrayList<>();
 
         //Search product_number and product_price
         for (OrderDetail orderDetail: orderDto.getOrderDetails()){
@@ -70,8 +72,8 @@ public class OrderServiceImpl implements OrderService {
 //            orderDetail.setProductPrice(productInfo.getProductPrice());
             //insert detail to orderDetail
             orderDetailRepository.save(orderDetail);
-            CartDto cartDto = new CartDto(orderDetail.getProductId(),orderDetail.getProductQuantity());
-            cartDtoList.add(cartDto);
+//            CartDto cartDto = new CartDto(orderDetail.getProductId(),orderDetail.getProductQuantity());
+//            cartDtoList.add(cartDto);
         }
 
         //insert orderMaster and orderDetail into database
@@ -79,9 +81,15 @@ public class OrderServiceImpl implements OrderService {
         orderMaster.setOrderId(orderId);
         BeanUtils.copyProperties(orderDto,orderMaster);
         orderMaster.setOrderAmount(orderAmount);
+        orderMaster.setOrderStatus(OrderStatusEnum.NEW.getCode());
+        orderMaster.setPayStatus(PaymentStatus.UNPAY.getCode());
         orderMasterRepository.save(orderMaster);
         //decrease stock from store
-        productService.decreaseStock(cartDtoList);
+        List<CartDto> cartDTOList = orderDto.getOrderDetails().stream().map(e ->
+                new CartDto(e.getProductId(), e.getProductQuantity())
+        ).collect(Collectors.toList());
+        productService.decreaseStock(cartDTOList);
+
 
         return orderDto;
     }
@@ -107,9 +115,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Page<OrderDto> findList(String buyerOpenid, Pageable pageable) {
-        Page<OrderMaster> page = orderMasterRepository.findByBuyerOpenid(buyerOpenid,pageable);
-        List<OrderDto> orderDtos = OrderMasterToOrderDto.convert(page.getContent());
-        return new PageImpl<OrderDto>(orderDtos,pageable,page.getTotalElements());
+        Page<OrderMaster> orderMasterPage = orderMasterRepository.findByBuyerOpenid(buyerOpenid,pageable);
+        List<OrderDto> orderDtos = OrderMasterToOrderDto.convert(orderMasterPage.getContent());
+        return new PageImpl<OrderDto>(orderDtos,pageable,orderMasterPage.getTotalElements());
 
 
     }
@@ -118,14 +126,14 @@ public class OrderServiceImpl implements OrderService {
     public OrderDto cancel(OrderDto orderDto) {
 
         //find Order Status
-        if (orderDto.getOrderStatus().equals(OrderStatus.NEW.getCode())){
+        if (orderDto.getOrderStatus().equals(OrderStatusEnum.NEW.getCode())){
             log.error("Order status is not correct");
         }
         //modify Order Status
 
         //return Store
 
-        //refund
+        //refund if has paid
 
         return null;
     }

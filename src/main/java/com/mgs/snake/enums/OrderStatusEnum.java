@@ -4,7 +4,7 @@ package com.mgs.snake.enums;
 import lombok.Getter;
 
 @Getter
-public enum  OrderStatus {
+public enum OrderStatusEnum {
     NEW(0,"NEW"),
     FINISH(1,"FINISH"),
     CANCEL(2,"CANCEl");
@@ -13,7 +13,7 @@ public enum  OrderStatus {
 
     private String message;
 
-    OrderStatus(Integer code,String message) {
+    OrderStatusEnum(Integer code, String message) {
         this.code = code;
         this.message = message;
     }

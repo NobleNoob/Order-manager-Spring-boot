@@ -1,6 +1,6 @@
 package com.mgs.snake.dao;
 
-import com.mgs.snake.enums.OrderStatus;
+import com.mgs.snake.enums.OrderStatusEnum;
 import com.mgs.snake.enums.PaymentStatus;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
@@ -35,7 +35,7 @@ public class OrderMaster {
     private BigDecimal orderAmount;
 
     @Column(name = "order_status")
-    private Integer orderStatus = OrderStatus.NEW.getCode();
+    private Integer orderStatus = OrderStatusEnum.NEW.getCode();
 
     @Column(name = "pay_status")
     private Integer payStatus = PaymentStatus.UNPAY.getCode();

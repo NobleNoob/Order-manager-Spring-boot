@@ -4,6 +4,7 @@ import com.mgs.snake.dao.OrderMaster;
 import com.mgs.snake.dto.OrderDto;
 import org.springframework.beans.BeanUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,8 +17,15 @@ public class OrderMasterToOrderDto {
         return orderDto;
     }
 
-    public static List<OrderDto> convert(List<OrderMaster> orderMasterList) {
-      return orderMasterList.stream().map(e -> convert(e)).collect(Collectors.toList());
+//      return orderMasterList.stream().map(e -> convert(e)).collect(Collectors.toList());
+
+        public static List<OrderDto> convert(List<OrderMaster> orderMasterList) {
+            List<OrderDto> orderDtoList = new ArrayList<>();
+            for(OrderMaster orderMaster : orderMasterList) {
+                orderDtoList.add(convert(orderMaster));
+            }
+            return orderDtoList;
+        }
 
     }
-}
+

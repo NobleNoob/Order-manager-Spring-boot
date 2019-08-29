@@ -3,6 +3,7 @@ package com.mgs.snake.service.impl;
 import com.mgs.snake.dao.OrderDetail;
 import com.mgs.snake.dto.OrderDto;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,11 +35,11 @@ public class OrderServiceImplTest {
         orderDto.setOrderId(ORDER_ID);
         orderDto.setBuyerName("hacker");
         orderDto.setBuyerAddress("Sample address");
-        orderDto.setBuyerPhone("50002");
+        orderDto.setBuyerPhone("1212121121");
         orderDto.setBuyerOpenid(BUYER_OPEN_ID);
         List<OrderDetail> orderDetailList = new ArrayList<>();
         OrderDetail detail = new OrderDetail();
-        detail.setProductId("12324");
+        detail.setProductId("50002");
         detail.setProductQuantity(1);
         orderDetailList.add(detail);
 
@@ -51,6 +52,7 @@ public class OrderServiceImplTest {
     public void findOne() throws Exception {
         OrderDto result = orderService.findOne(ORDER_ID);
         log.info("result {}", result);
+        Assert.assertEquals(ORDER_ID,result.getOrderId());
 
     }
 
@@ -58,6 +60,7 @@ public class OrderServiceImplTest {
     public void findList() {
         PageRequest request = new PageRequest(0,2);
         Page<OrderDto> orderDtoPage = orderService.findList(BUYER_OPEN_ID,request);
+        Assert.assertNotEquals(0,orderDtoPage.getTotalElements());
 
     }
 
