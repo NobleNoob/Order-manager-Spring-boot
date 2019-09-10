@@ -2,11 +2,13 @@ package com.mgs.snake.controller;
 
 
 import com.mgs.snake.VO.ResultVO;
+import com.mgs.snake.dao.OrderDetail;
 import com.mgs.snake.dao.OrderMaster;
 import com.mgs.snake.dto.OrderDto;
 import com.mgs.snake.enums.ResultEnum;
 import com.mgs.snake.exceptions.SellException;
 import com.mgs.snake.form.OrderForm;
+import com.mgs.snake.service.BuyerService;
 import com.mgs.snake.service.OrderService;
 import com.mgs.snake.utils.ResultVOUtil;
 import com.mgs.snake.utils.converter.OrderFormToOrderDto;
@@ -31,6 +33,9 @@ public class BuyOrderController {
 
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private BuyerService buyerService;
 
     @PostMapping("/create")
     public ResultVO<Map<String,String>> create(@Valid OrderForm orderForm, BindingResult bindingResult) {
@@ -63,7 +68,27 @@ public class BuyOrderController {
         }
         PageRequest pageRequest = new PageRequest(page,size);
         Page<OrderDto> orderDtos = orderService.findList(openId,pageRequest);
-        return ResultVOUtil.success(orderDtos.getContent());
+        return ResultVOUtil.success();
     }
 
+    @GetMapping("/detail")
+    public ResultVO<OrderDto> detail(
+            @RequestParam(name = "openId") String openId,
+            @RequestParam(name = "orderId") String orderId) {
+        OrderDto orderDto = buyerService.findOrderOne(openId,orderId);
+        if(!orderDto.getBuyerOpenid().equals(openId)) {
+
+        }
+        return ResultVOUtil.success(orderDto);
+        }
+
+    @PostMapping("/cancel")
+    public ResultVO<OrderDto> cancel(
+            @RequestParam("openId") String openId,
+            @RequestParam("orderId") String orderId)
+    {
+        buyerService.cancelOrder(openId,orderId);
+        return ResultVOUtil.success();
+
+    }
 }

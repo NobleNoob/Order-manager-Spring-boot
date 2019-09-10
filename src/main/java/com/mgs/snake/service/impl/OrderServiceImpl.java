@@ -57,7 +57,6 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderDto findOne(String orderId) {
-
         OrderMaster orderMaster = orderMasterRepository.findOne(orderId);
         if (orderMaster == null){
             throw new SellException(ResultEnum.ORDER_IS_NOT_EXISTENT);

@@ -8,6 +8,7 @@ public enum ResultEnum {
 
     OPENID_EMPTY(40401,"OpenID is empty"),
     CART_EMPTY(40400,"Cart is empty"),
+    ORDER_NOT_EQUAL(40410,"Order id is not equal"),
     PARAM_ERROR(40000,"Argument is incorrect"),
     PRODUCT_NOT_EXISTENT(10,"Product not Existent"),
     STORE_IS_NOT_ENOUGH(20,"Store not Enough"),
@@ -16,6 +17,7 @@ public enum ResultEnum {
     ORDER_STATUS_ERROR(50,"Order status is not correct"),
     ORDER_UPDATE_FAILED(51,"Order status is not correct"),
     ORDER_DETAIL_EMPTY(41,"Order detail is empty"),
+    ORDER_DTO_EMPTY(42,"OrderDto is empty"),
     PAID_IS_FAILED(60,"Pay is failed");
 
 

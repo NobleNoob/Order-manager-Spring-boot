@@ -4,7 +4,6 @@ import com.mgs.snake.dao.ProductInfo;
 import com.mgs.snake.dto.CartDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
 import java.util.List;
 
 public interface ProductService {
